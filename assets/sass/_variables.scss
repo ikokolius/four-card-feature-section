@@ -1,0 +1,22 @@
+@use 'functions' as *;
+
+// Colors
+$color-blue: hsl(212, 86%, 64%);
+$color-cyan: hsl(180, 62%, 55%);
+$color-grey-400: hsl(212, 6%, 44%);
+$color-grey-500: hsl(234, 12%, 34%);
+$color-orange: hsl(34, 97%, 64%);
+$color-red: hsl(0, 78%, 62%);
+$color-white: hsl(0, 0%, 100%);
+
+// Fonts
+$font-size-body: 15px;
+$font-stack: 'Poppins', serif;
+$font-weight-bold: 600;
+$font-weight-light: 200;
+$font-weight-regular: 400;
+
+// Spacing
+$spacing-150: pxToRem(12px);
+$spacing-300: pxToRem(24px);
+$spacing-30px: pxToRem(30px);

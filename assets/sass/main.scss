@@ -1,0 +1,77 @@
+@use 'functions' as *;
+@use 'variables' as *;
+@use 'reset';
+
+body {
+  font-family: $font-stack;
+  font-size: $font-size-body;
+  font-weight: $font-weight-regular;
+  color: $color-grey-400;
+}
+
+h1,
+h2 {
+  font-weight: $font-weight-bold;
+  color: $color-grey-500;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, pxToRem(125px));
+  gap: $spacing-30px;
+}
+
+hgroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-300;
+}
+
+header {
+  margin-bottom: pxToRem(75px);
+}
+
+.card {
+  width: pxToRem(350px);
+  height: pxToRem(250px);
+  padding: $spacing-30px;
+  border-radius: 5px;
+  border-left: 1px solid $color-grey-400;
+  border-right: 1px solid $color-grey-400;
+  border-bottom: 1px solid $color-grey-400;
+  border-top: 4px solid;
+  box-shadow: 2px 3px 8px 5px lightgrey;
+
+  &:nth-child(1) {
+    grid-area: 1 / 2 / 3 / 3;
+    background-color: yellow;
+    border-top-color: $color-red;
+  }
+
+  &:nth-child(2) {
+    grid-area: 2 / 1 / 4 / 2;
+    background-color: orange;
+    border-top-color: $color-cyan;
+  }
+
+  &:nth-child(3) {
+    grid-area: 3 / 2 / 5 / 3;
+    background-color: beige;
+    border-top-color: $color-blue;
+  }
+
+  &:nth-child(4) {
+    grid-area: 5 / 7 / 2 / 3;
+    background-color: rosybrown;
+    border-top-color: $color-orange;
+  }
+}
+
+@media (max-width: 420px) {
+  main {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+}
