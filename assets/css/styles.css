@@ -7,6 +7,11 @@ body {
   line-height: 1.5;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+}
+
 body {
   font-family: "Poppins", serif;
   font-size: 15px;
@@ -24,15 +29,14 @@ p {
 }
 
 header {
-  margin-bottom: 4.6875rem;
-  padding-top: 4.6875rem;
+  padding-block: 3.75rem;
   grid-area: header;
   width: 80%;
   text-align: center;
 }
 header h1,
 header h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 header h1 {
   font-weight: 600;
@@ -45,21 +49,24 @@ header h2 {
 main {
   display: grid;
   grid-area: main;
-  width: 84%;
-  margin-inline: auto;
-  row-gap: 1.875rem;
+  justify-items: center;
+  gap: 1.875rem;
 }
 
 .card {
-  width: 19.6875rem;
+  width: min(84%, 19.6875rem);
   height: 15.625rem;
   padding: 1.875rem;
   border-radius: 5px;
   border-top: 4px solid;
-  box-shadow: 2px 2px 8px 5px rgba(0, 0, 0, 0.05);
+  box-shadow: 2px 4px 12px 5px rgba(0, 0, 0, 0.05);
+}
+.card p {
+  font-size: 0.875rem;
 }
 .card h2 {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
 }
 .card .img-wrapper {
   margin-top: 1.875rem;
@@ -67,10 +74,10 @@ main {
   justify-content: flex-end;
 }
 .card:nth-child(1) {
-  border-top-color: hsl(0, 78%, 62%);
+  border-top-color: hsl(180, 62%, 55%);
 }
 .card:nth-child(2) {
-  border-top-color: hsl(180, 62%, 55%);
+  border-top-color: hsl(0, 78%, 62%);
 }
 .card:nth-child(3) {
   border-top-color: hsl(212, 86%, 64%);
@@ -80,27 +87,41 @@ main {
 }
 
 @media (min-width: 768px) {
+  header {
+    width: 31.5625rem;
+  }
+  header h1,
+  header h2 {
+    font-size: 2rem;
+  }
   main {
     grid-template-columns: repeat(2, 1fr);
-    column-gap: 1.875rem;
+  }
+  .card {
+    width: 19.6875rem;
   }
 }
 @media (min-width: 1224px) {
   header {
-    width: 31.5625rem;
+    padding-top: 7.1875rem;
+    padding-bottom: 4.6875rem;
   }
   main {
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 7.8125rem);
-    column-gap: 1.875rem;
-    row-gap: 0.9375rem;
+    justify-items: center;
     width: 69.6875rem;
   }
+  .card {
+    width: 21.875rem;
+  }
+  .card h2 {
+    font-size: 1.4rem;
+  }
   .card:nth-child(1) {
-    grid-area: 1/2/3/3;
+    grid-area: 2/1/4/2;
   }
   .card:nth-child(2) {
-    grid-area: 2/1/4/2;
+    grid-area: 1/2/3/3;
   }
   .card:nth-child(3) {
     grid-area: 3/2/5/3;
