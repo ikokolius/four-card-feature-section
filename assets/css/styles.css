@@ -12,68 +12,101 @@ body {
   font-size: 15px;
   font-weight: 400;
   color: hsl(212, 6%, 44%);
-}
-
-h1,
-h2 {
-  font-weight: 600;
+  display: grid;
+  grid-template-areas: "header" "main";
+  justify-content: center;
+  justify-items: center;
   color: hsl(234, 12%, 34%);
 }
 
-main {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(4, 7.8125rem);
-  gap: 1.875rem;
-}
-
-hgroup {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
+p {
+  color: hsl(212, 6%, 44%);
 }
 
 header {
   margin-bottom: 4.6875rem;
+  padding-top: 4.6875rem;
+  grid-area: header;
+  width: 80%;
+  text-align: center;
+}
+header h1,
+header h2 {
+  font-size: 2rem;
+}
+header h1 {
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+header h2 {
+  font-weight: 200;
+}
+
+main {
+  display: grid;
+  grid-area: main;
+  width: 84%;
+  margin-inline: auto;
+  row-gap: 1.875rem;
 }
 
 .card {
-  width: 21.875rem;
+  width: 19.6875rem;
   height: 15.625rem;
   padding: 1.875rem;
   border-radius: 5px;
-  border-left: 1px solid hsl(212, 6%, 44%);
-  border-right: 1px solid hsl(212, 6%, 44%);
-  border-bottom: 1px solid hsl(212, 6%, 44%);
   border-top: 4px solid;
-  box-shadow: 2px 3px 8px 5px lightgrey;
+  box-shadow: 2px 2px 8px 5px rgba(0, 0, 0, 0.05);
+}
+.card h2 {
+  font-size: 1.4rem;
+}
+.card .img-wrapper {
+  margin-top: 1.875rem;
+  display: flex;
+  justify-content: flex-end;
 }
 .card:nth-child(1) {
-  grid-area: 1/2/3/3;
-  background-color: yellow;
   border-top-color: hsl(0, 78%, 62%);
 }
 .card:nth-child(2) {
-  grid-area: 2/1/4/2;
-  background-color: orange;
   border-top-color: hsl(180, 62%, 55%);
 }
 .card:nth-child(3) {
-  grid-area: 3/2/5/3;
-  background-color: beige;
   border-top-color: hsl(212, 86%, 64%);
 }
 .card:nth-child(4) {
-  grid-area: 5/7/2/3;
-  background-color: rosybrown;
   border-top-color: hsl(34, 97%, 64%);
 }
 
-@media (max-width: 420px) {
+@media (min-width: 768px) {
   main {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.875rem;
+  }
+}
+@media (min-width: 1224px) {
+  header {
+    width: 31.5625rem;
+  }
+  main {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 7.8125rem);
+    column-gap: 1.875rem;
+    row-gap: 0.9375rem;
+    width: 69.6875rem;
+  }
+  .card:nth-child(1) {
+    grid-area: 1/2/3/3;
+  }
+  .card:nth-child(2) {
+    grid-area: 2/1/4/2;
+  }
+  .card:nth-child(3) {
+    grid-area: 3/2/5/3;
+  }
+  .card:nth-child(4) {
+    grid-area: 5/7/2/3;
   }
 }
 

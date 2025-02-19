@@ -16,7 +16,6 @@ $font-weight-bold: 600;
 $font-weight-light: 200;
 $font-weight-regular: 400;
 
-// Spacing
-$spacing-150: pxToRem(12px);
-$spacing-300: pxToRem(24px);
-$spacing-30px: pxToRem(30px);
+// Layout
+$layout-2-columns: 768px;
+$layout-3-columns: 1224px;

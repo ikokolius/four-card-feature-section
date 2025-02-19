@@ -7,71 +7,124 @@ body {
   font-size: $font-size-body;
   font-weight: $font-weight-regular;
   color: $color-grey-400;
-}
-
-h1,
-h2 {
-  font-weight: $font-weight-bold;
+  display: grid;
+  grid-template-areas: 'header' 'main';
+  justify-content: center;
+  justify-items: center;
   color: $color-grey-500;
 }
 
-main {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(4, pxToRem(125px));
-  gap: $spacing-30px;
-}
-
-hgroup {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: $spacing-300;
+p {
+  color: $color-grey-400;
 }
 
 header {
   margin-bottom: pxToRem(75px);
+  padding-top: pxToRem(75px);
+  grid-area: header;
+  width: 80%;
+  // width: pxToRem(300px);
+  text-align: center;
+
+  h1,
+  h2 {
+    font-size: 2rem;
+  }
+
+  h1 {
+    font-weight: $font-weight-bold;
+    margin-bottom: pxToRem(20px);
+  }
+
+  h2 {
+    font-weight: $font-weight-light;
+  }
+}
+
+main {
+  display: grid;
+  grid-area: main;
+  width: 84%;
+  margin-inline: auto;
+  //width: pxToRem(315px);
+  row-gap: pxToRem(30px);
 }
 
 .card {
-  width: pxToRem(350px);
+  width: pxToRem(315px);
+  //width: pxToRem(350px);
   height: pxToRem(250px);
-  padding: $spacing-30px;
+  padding: pxToRem(30px);
   border-radius: 5px;
-  border-left: 1px solid $color-grey-400;
-  border-right: 1px solid $color-grey-400;
-  border-bottom: 1px solid $color-grey-400;
   border-top: 4px solid;
-  box-shadow: 2px 3px 8px 5px lightgrey;
+  box-shadow: 2px 2px 8px 5px rgb(0 0 0 / 0.05);
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .img-wrapper {
+    margin-top: pxToRem(30px);
+    display: flex;
+    justify-content: flex-end;
+  }
 
   &:nth-child(1) {
-    grid-area: 1 / 2 / 3 / 3;
-    background-color: yellow;
+    //grid-area: 1 / 2 / 3 / 3;
     border-top-color: $color-red;
   }
 
   &:nth-child(2) {
-    grid-area: 2 / 1 / 4 / 2;
-    background-color: orange;
+    //grid-area: 2 / 1 / 4 / 2;
     border-top-color: $color-cyan;
   }
 
   &:nth-child(3) {
-    grid-area: 3 / 2 / 5 / 3;
-    background-color: beige;
+    //grid-area: 3 / 2 / 5 / 3;
     border-top-color: $color-blue;
   }
 
   &:nth-child(4) {
-    grid-area: 5 / 7 / 2 / 3;
-    background-color: rosybrown;
+    //grid-area: 5 / 7 / 2 / 3;
     border-top-color: $color-orange;
   }
 }
 
-@media (max-width: 420px) {
+@media (min-width: $layout-2-columns) {
   main {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: pxToRem(30px);
+  }
+}
+
+@media (min-width: $layout-3-columns) {
+  header {
+    width: pxToRem(505px);
+  }
+
+  main {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, pxToRem(125px));
+    column-gap: pxToRem(30px);
+    row-gap: pxToRem(15px);
+    width: pxToRem(1115px);
+  }
+
+  .card {
+    &:nth-child(1) {
+      grid-area: 1 / 2 / 3 / 3;
+    }
+
+    &:nth-child(2) {
+      grid-area: 2 / 1 / 4 / 2;
+    }
+
+    &:nth-child(3) {
+      grid-area: 3 / 2 / 5 / 3;
+    }
+
+    &:nth-child(4) {
+      grid-area: 5 / 7 / 2 / 3;
+    }
   }
 }
